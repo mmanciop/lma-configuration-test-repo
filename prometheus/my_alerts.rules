@@ -1,0 +1,11 @@
+groups:
+- name: ExampleRedisGroup
+  rules:
+  - alert: ExampleRedisDown
+    expr: redis_up{} == 0
+    for: 2m
+    labels:
+      severity: critical
+    annotations:
+      summary: "Redis instance down"
+      description: "Whatever"
